@@ -19,6 +19,8 @@ You should have received a <a href=\"LICENSE\">copy of the\n\
 GNU General Public License</a>\n\
 along with this program; if not, write to the Free Software\n\
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.\n\
+<br>There is of course <a href=\"https://github.com/SeaLiteral/stenopgaver\">a repository</a>\n\
+with source code.\
 "
 
 
