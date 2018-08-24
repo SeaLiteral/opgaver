@@ -19,8 +19,6 @@ You should have received a <a href=\"LICENSE\">copy of the\n\
 GNU General Public License</a>\n\
 along with this program; if not, write to the Free Software\n\
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.\n\
-<br>There is of course <a href=\"https://github.com/SeaLiteral/stenopgaver\">a repository</a>\n\
-with source code.\
 "
 
 
@@ -32,19 +30,6 @@ var doneCounting=false
 var writeField
 var showField
 var theoryField
-
-var texts=Array()
-texts['cat']='Can Ted pat the red cat? Is this pad what Hess had? This cat is the pet. It purrs at the set and it purrs at that purchaser patting the hat. The cap is the hat. The cat had the sap. And that is the rap. Are saps as rad as paps?'
-
-texts['skak']='Kåre så på skak og Rikke så på kar. Kåre kan så bær og Rikke er kæk. Er Saras kat kær? Kåre er kok. Rikkes sok er på Rikkes skab. Kåre kan skære kager. Er Rikke skrap? Råb og reb. Sara er rap.'
-
-var textNames=['cat|Can Ted pat the red cat?', 'skak|Kåre så på skak']
-
-var summaries=Array()
-
-summaries['cat']='Here are some sentences with simple words and commonly briefed words. Here is a diagram of the layout. Concentrate on first learning the keys that aren\'t greyed out. The vowels in the bottom row are pressed with the thumbs. The consonants in the left side are written with the left hand and are called initial consonants. The consonants in the right side are written with the right hand and called final consonants. To write a simple one syllable word, use the vowel keys to write the vowel in the middle of the word, the initial consonants to write consonants before it, and the final consonants to write consonants after it. And press all of the keys in the word at the same time. However, some words are usually written in a simplified way because they are very common, so look at the table and try to learn the words in it. You might notice there are two initial S keys. Pressing one, the other or both has the same effect, so just use whichever you find easiest.<pre>S T P H * <span class="right">F</span> P <span class="right">L</span> T D\nS K <span class="right">W</span> R * R <span class="right">B G</span> S <span class="right">Z</span>\n    A <span class="right">O</span>   E U</pre>The asterisk in the middle is a wildcard for things like disambiguating homophones. But in this exercise you\'ll have to use it for something else: Plover\'s default dictionary uses PUR as a brief for "purchaser" because that word is much more common than "purr", so you\'ll have to use the asterisk key to write "purr". Also, if you make a mistake, you can use the asterisk as a backspace of sorts that undoes the last stroke.<br/><table><tr><th>Word</th><th>Brief</th></tr><tr><td>it</td><td>T-</td></tr><tr><td>is</td><td>S-</td></tr><tr><td>the</td><td>-T</td><tr><td>can</td><td>K-</td></tr></tr><tr><td>this</td><td>TH-</td></tr><tr><td>are</td><td>R-</td></tr><tr><td>and</td><td>SKP-</td></tr><tr><td>that</td><td>THA</td></tr><tr><td>what</td><td>WHA</td></tr></table>'
-
-summaries['skak']='Her er nogle vokaler, foreløbig kan I godt se bort fra længde og stød:<ul><li>A, sådan som det udtales i "skak"</li><li>Æ, som i "kæk"</li><li>AÆ, et almindelight a, som i "skat"</li><li>Å, som en "å"</li><li>O, som i "klokke".</li></ul>Dem skriver vi med tommelfingrene. Konsonanter skriver vi med de andre fingre, og så bruger vi venstre hånd til dem, der skal stå før vokalerne og højre hånd til dem, der skal stå efter dem. Her kan I se hvor tasterne er på stenografitastaturet. Bare se bort fra de grå, dem skal vi nok se på senere.<pre><span class="right">-N T</span> P <span class="right">H</span> * <span class="right">F</span> P <span class="right">L T D</span>\n S K <span class="right">V</span> R * R <span class="right">E</span> K S <span class="right">D</span>\n     A O   Æ Å</pre>'
 
 var WAIT='WAIT'
 var PART='PART'
@@ -62,10 +47,12 @@ function fillText(){
         lastPart=splitAdress[1]
     }
     if(lastPart==''){
-        outString='<ul>'
-        for (var i in textNames){
-            var names=textNames[i].split('|')
-            outString+='<li><a href="write.htm?'+names[0]+'">'+names[1]+'</a></li>'
+        outString='<ul>\n'
+        var lessons=document.getElementsByClassName('lesson')
+        for (var i=0; i<lessons.length; i++){
+            var element=lessons[i]
+            var headings=element.getElementsByTagName('h2')
+            outString+='<li><a href="write.htm?'+i+'">'+headings[0].innerHTML+'</a></li>\n'
         }
         outString+='</ul>'
         showField.innerHTML=outString.replace(/\n/g,'<br>')
@@ -74,13 +61,17 @@ function fillText(){
         showField.innerHTML+='<hr>'+license
     }
     else{
-        if(summaries[lastPart]!=undefined){
-            theoryField.innerHTML=summaries[lastPart]
+        var lessons=document.getElementsByClassName('lesson')
+        var index=Number(lastPart)
+        if(lessons[index]!=undefined){
+            var theory=lessons[index].getElementsByClassName('theory')[0]
+            theoryField.innerHTML=theory.innerHTML
+            var writeText=lessons[index].getElementsByClassName('writingExercise')[0]
+            outString=writeText.innerHTML
         }
         else{
             theoryField.style="display: none;"
         }
-        outString=texts[lastPart.toString()]
         showField.innerHTML=outString.replace(/\n/g,'<br>')
         writeField.onkeyup=checkText
     }
@@ -176,6 +167,7 @@ function checkText(){
         timeField=document.getElementById("timeField")
         timeField.innerHTML=outLength.toString()+" characters in "+((Math.round(timeTaken*100))/100).toString()+" seconds: "+(Math.round(100*outLength/timeTaken)/100).toString()+" CPS"
         doneCounting=true
+        writeField.onkeyup=undefined
     }
     writeField=document.getElementById("textInput")
 }
