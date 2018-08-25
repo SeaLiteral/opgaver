@@ -45,3 +45,8 @@ span.right{
 span.wrong{
     text-decoration: line-through;
 }
+
+div#breadcrumbs{
+    font-size: 80%;
+    font-family: sans-serif;
+}
