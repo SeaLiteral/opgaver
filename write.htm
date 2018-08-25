@@ -4,6 +4,7 @@
 <title>Stenopgaver</title>
 <link rel="stylesheet" type="text/css" href="style.css">
 <script type="text/javascript" src="input.js"></script></head><body>
+<div id="breadcrumbs"><a href="index.htm">Stenopgaver</a></div>
 <div id="textTheory"></div>
 <div id="textDisplay">Here's the <a href="write.htm">list of exercises</a>.</div>
 <textarea id="textInput"></textarea>
@@ -14,11 +15,12 @@
 <div class="lesson">
     <h2>Can Ted pat the red cat?</h2>
     <div class="theory">
-Here are some sentences with simple words and commonly briefed words. Here is a diagram of the layout. Concentrate on first learning the keys that aren't greyed out. The vowels in the bottom row are pressed with the thumbs. The consonants in the left side are written with the left hand and are called initial consonants. The consonants in the right side are written with the right hand and called final consonants. To write a simple one syllable word, use the vowel keys to write the vowel in the middle of the word, the initial consonants to write consonants before it, and the final consonants to write consonants after it. And press all of the keys in the word at the same time. However, some words are usually written in a simplified way because they are very common, so look at the table and try to learn the words in it. You might notice there are two initial S keys. Pressing one, the other or both has the same effect, so just use whichever you find easiest.
+    <p>Here are some sentences with simple words and commonly briefed words. Here is a diagram of the layout. Concentrate on first learning the keys that aren't greyed out. The vowels in the bottom row are pressed with the thumbs. The consonants in the left side are written with the left hand and are called initial consonants. The consonants in the right side are written with the right hand and called final consonants. To write a simple one syllable word, use the vowel keys to write the vowel in the middle of the word, the initial consonants to write consonants before it, and the final consonants to write consonants after it. And press all of the keys in the word at the same time. However, some words are usually written in a simplified way because they are very common, so look at the table and try to learn the words in it. You might notice there are two initial S keys. Pressing one, the other or both has the same effect, so just use whichever you find easiest. Also, the G key on the right side will, for now, just mean to add the "ing" suffix to the words it appears on.</p>
 <pre>S T P H * <span class="right">F</span> P <span class="right">L</span> T D
-S K <span class="right">W</span> R * R <span class="right">B G</span> S <span class="right">Z</span>
+S K <span class="right">W</span> R * R <span class="right">B</span> G S <span class="right">Z</span>
     A <span class="right">O</span>   E U</pre>
-The asterisk in the middle is a wildcard for things like disambiguating homophones. But in this exercise you'll have to use it for something else: Plover's default dictionary uses PUR as a brief for "purchaser" because that word is much more common than "purr", so you'll have to use the asterisk key to write "purr". Also, if you make a mistake, you can use the asterisk as a backspace of sorts that undoes the last stroke.<br/>
+<p>The asterisk in the middle is a wildcard for things like disambiguating homophones. But in this exercise you'll have to use it for something else: Plover's default dictionary uses PUR as a brief for "purchaser" because that word is much more common than "purr", so you'll have to use the asterisk key to write "purr". Also, if you make a mistake, you can use the asterisk as a backspace of sorts that undoes the last stroke.</p>
+<p>The following table contains some briefs. It also contains some punctuation marks which get written without spaces before them and they capitalize the first letter written after them. In this table, they're shown with carets before them. The carets aren't a part of the output.</p>
 <table>
 <tr><th>Word</th><th>Brief</th></tr>
 <tr><td>it</td><td>T-</td></tr>
@@ -30,6 +32,8 @@ The asterisk in the middle is a wildcard for things like disambiguating homophon
 <tr><td>and</td><td>SKP-</td></tr>
 <tr><td>that</td><td>THA</td></tr>
 <tr><td>what</td><td>WHA</td></tr>
+<tr><td>^.</td><td>-P</td></tr>
+<tr><td>^?</td><td>H-F</td></tr>
 </table>
     </div>
     <div class="writingExercise">Can Ted pat the red cat? Is this pad what Hess had? This cat is the pet. It purrs at the set and it purrs at that purchaser patting the hat. The cap is the hat. The cat had the sap. And that is the rap. Are saps as rad as paps?</div>
@@ -48,16 +52,19 @@ S K <span class="right">W</span> R * R <span class="right">B G</span> S Z
 <p>So now that you know how to write final F and L, you're probably wondering how to write those sounds at the start of syllables: the initial F is made by pressing T and P together and the initial L is made by pressing H and R together.</p>
 <p>And now for the vowels: O is the sound in words like stop and hot. If you're not sure when to use O and when to use U, it's usually the spelling that decides, unless the word is spelt with both O and U, in which case U usually wins as long as it doesn't conflict with some other word (so cough will be written with O so as not to conflict with cuff.</p>
 <p>Another vowel you might want to write is I. The short vowel I is written by pressing E and U at the same time. And English has two diff things that contain that sound: AI and OI. The former, as in "stain" and "sane" is written AEU. The latter, found in the word "coil" is written OEU.</p>
+<p>And in this brief table, a caret means no space, so "a^" means an a with no space after it. A stroke with such a translation is called a prefix stroke.</p>
 <table>
 <tr><th>Word</th><th>Brief</th></tr>
-<tr><td>a</td><td>will</td></tr>
-<tr><td>if</td><td>a</td></tr>
-<tr><td>of</td><td>-T</td></tr>
-<tr><td>I</td><td>K-</td></tr>
+<tr><td>a</td><td>AEU</td></tr>
+<tr><td>a^</td><td>A</td></tr>
+<tr><td>if</td><td>TP</td></tr>
+<tr><td>of</td><td>-F</td></tr>
+<tr><td>I</td><td>EU</td></tr>
 <tr><td>will</td><td>TH-</td></tr>
+<tr><td>there</td><td>THR</td></tr>
 </table>
     </div>
-    <div class="writingExercise">The little cat will hop off if it can. It will avoid the fall. And it is fast. The floor has a carpet. There is some stuff there. Roy will laugh at the lit LED that will last. Will it stay lit? And will the tail of the cat hit the cup?</div>
+    <div class="writingExercise">The little cat will hop off if it can. It will avoid the fall. And it is fast. The floor has a carpet. There is stuff there. Roy will laugh at the lit LED that will last. Will it stay lit? And will the tail of the cat hit the cup?</div>
 </div>
 
 
